@@ -11,19 +11,23 @@ package model;
  */
 public class Aluno {
 
+    //Variaveis de Aluno
     private String nome;
     private int idade;
 
+    //Construtor vazio de Aluno
     public Aluno() {
         this.nome = " ";
         this.idade = 0;
     }
 
+    //Construtor de Aluno
     public Aluno(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
     }
 
+    //Getters and Setters de Aluno
     public void setNome(String nome) {
         this.nome = nome;
     }

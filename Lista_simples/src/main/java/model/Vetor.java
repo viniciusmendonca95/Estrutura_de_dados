@@ -19,11 +19,7 @@ public class Vetor<T> {
 
     //Construtor específico da Classe Vetor
     public Vetor(int tam) {
-
-        //Criando um novo vetor genérico
         vetor = (T[]) new Object[tam];
-
-        //this.qntElementos = tam;
     }
 
     //Método que verifica se existe dado em uma posição do vetor
@@ -46,16 +42,10 @@ public class Vetor<T> {
 
     //Método que adiciona no vetor usando o recurso de Iterador
     public void AdicionarIt(T elemento) {
-
-        //if (Tamanho() == vetor.length) {
-        //    redimensionar();
-        //}
-        //Passamos o vetor como parâmetro para o iterador
+        redimensionar();
         Iterador it = new Iterador(vetor);
-
         int i = 0;
-        while (it.hasNext()) { //percorrendo o vetor usando iterador
-
+        while (it.hasNext()) {
             if (it.next() == null) {
                 vetor[i] = elemento;
                 qntElementos++;
@@ -67,9 +57,7 @@ public class Vetor<T> {
 
     //Método que adiciona no vetor
     public void Adicionar(T elemento) {
-
         redimensionar();
-
         for (int i = 0; i < vetor.length; i++) {
             if (vetor[i] == null) {
                 vetor[i] = elemento;
@@ -89,11 +77,46 @@ public class Vetor<T> {
         qntElementos++;
     }
 
+    /*
     //Método que adiciona no início do vetor
     public void adicionaInicio(T elemento) {
         redimensionar();
-        for (int i = vetor.length - 2; 0 < i + 1; i--) {
+        Iterador it = new Iterador(vetor);
+        int i = 0;
+        while (it.hasNext()) {
+            if (it.next() == null) {
+                break;
+            }
             vetor[i + 1] = vetor[i];
+            i++;
+        }
+        vetor[0] = elemento;
+        qntElementos++;
+    }
+     */
+    //Método que adiciona no início do vetor
+    public void adicionaInicio(T elemento) {
+        if (Tamanho() >= vetor.length - 1) {
+            redimensionar();
+        }
+        Iterador it = new Iterador(vetor);
+        int i = 0;
+        T aux1 = vetor[0];
+        T aux2 = aux1;
+        while (it.hasNext()) {
+            if (i < Tamanho() && vetor[i] != null) {
+                if (vetor[i + 1] == null) {
+                    aux2 = vetor[i + 1];
+                    vetor[i + 1] = aux1;
+                    break;
+                }
+                aux2 = vetor[i + 1];
+                vetor[i + 1] = aux1;
+                aux1 = aux2;
+            } else {
+                break;
+            }
+            i++;
         }
         vetor[0] = elemento;
         qntElementos++;
@@ -124,6 +147,7 @@ public class Vetor<T> {
         if (vetor[0] == null) {
             throw new IllegalArgumentException("Posição inválida");
         }
+
         for (int i = 1; i < vetor.length; i++) {
             vetor[i - 1] = vetor[i];
         }
@@ -152,30 +176,46 @@ public class Vetor<T> {
 
     //Método que limpa/apaga todas as posições do vetor
     public void Limpar() {
-        for (int i = 0; i < vetor.length; i++) {
+        Iterador it = new Iterador(vetor);
+        int i = 0;
+        while (it.hasNext()) {
+            if (it.next() == null) {
+                break;
+            }
             vetor[i] = null;
+            i++;
         }
         qntElementos = 0;
     }
 
-    //Método que dobra o tamanho do vetor caso ele atinja o seu tamanho.
+//Método que dobra o tamanho do vetor caso ele atinja o seu tamanho.
     public void redimensionar() {
         if (Tamanho() == vetor.length) {
             T[] novoVetor = (T[]) new Object[vetor.length * 2];
-            for (int i = 0; i < vetor.length; i++) {
+            Iterador it = new Iterador(vetor);
+            int i = 0;
+            while (it.hasNext()) {
+                if (it.next() == null) {
+                    qntElementos++;
+                    break;
+                }
                 novoVetor[i] = vetor[i];
+                i++;
             }
             vetor = novoVetor;
-
         }
-
     }
 
     //Método que printa o vetor.
     public void print() {
-        for (int i = 0; i < vetor.length; i++) {
+        Iterador it = new Iterador(vetor);
+        int i = 0;
+        while (it.hasNext()) {
+            if (it.next() == null) {
+                break;
+            }
             System.out.println(vetor[i]);
+            i++;
         }
     }
-
 }

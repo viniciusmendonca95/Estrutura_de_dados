@@ -13,6 +13,7 @@ import java.util.Iterator;
  */
 public class Iterador<T> implements Iterator {
 
+    //Variaveis Iterador
     T[] itens;
     int posicao = 0;
 
