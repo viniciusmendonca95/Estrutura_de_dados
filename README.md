@@ -6,3 +6,4 @@ Estruturas:
 
 - Lista Simples (Array)
 - Lista Encadeada
+- Lista Duplamente Encadeada
