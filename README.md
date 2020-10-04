@@ -7,3 +7,4 @@ Estruturas:
 - Lista Simples (Array)
 - Lista Encadeada
 - Lista Duplamente Encadeada
+- Lista Duplamente Encadeada com nó cabeça
