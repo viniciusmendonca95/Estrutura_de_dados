@@ -8,3 +8,4 @@ Estruturas:
 - Lista Encadeada
 - Lista Duplamente Encadeada
 - Lista Duplamente Encadeada com nó cabeça
+- Pilha
