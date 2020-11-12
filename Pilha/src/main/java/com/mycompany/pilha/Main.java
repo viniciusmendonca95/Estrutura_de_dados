@@ -9,6 +9,7 @@ package com.mycompany.pilha;
  *
  * @author vinyj
  */
+
 public class Main {
     public static void main(String[] args) {
         
@@ -48,8 +49,7 @@ public class Main {
         //Recuperando o valor do topo da pilha
         b1 = (Bola) pilha.Top();
 
-        
-        
+       
         //Printando o valor do topo da pilha
         System.out.println(b1.getNumero());        
     }
