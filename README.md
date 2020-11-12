@@ -9,3 +9,4 @@ Estruturas:
 - Lista Duplamente Encadeada
 - Lista Duplamente Encadeada com nó cabeça
 - Pilha
+- Fila
